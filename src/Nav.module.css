@@ -17,16 +17,20 @@
  * along with graphene-site.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Bevan&family=Onest&display=swap');
-
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: 'Onest', sans-serif;
+ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin-top: 0;
+    background-color: #010f1f;
 }
 
-* {
-  background-color: #102033;
-  color: white;
+li {
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+a {
+    text-decoration: none;
 }

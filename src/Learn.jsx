@@ -15,19 +15,14 @@
 // You should have received a copy of the GNU General Public License
 // along with graphene-site.  If not, see <http://www.gnu.org/licenses/>.
 
-import styles from './App.module.css';
-import Nav from './Nav';
+import Nav from "./Nav"
 
-function App() {
-  return (
-    <div class={styles.App}>
-      <Nav />
-      <div class={styles.header}>
-        <h1>Graphene</h1>
-        <p>A statically typed, compiled, data oriented language.</p>
-      </div>
-    </div>
-  );
+function Learn() {
+    return (
+        <div>
+            <Nav />
+        </div>
+    );
 }
 
-export default App;
+export default Learn;

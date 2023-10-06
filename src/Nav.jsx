@@ -15,19 +15,19 @@
 // You should have received a copy of the GNU General Public License
 // along with graphene-site.  If not, see <http://www.gnu.org/licenses/>.
 
-import styles from './App.module.css';
-import Nav from './Nav';
+import styles from "./Nav.module.css";
+import { A } from "@solidjs/router";
 
-function App() {
-  return (
-    <div class={styles.App}>
-      <Nav />
-      <div class={styles.header}>
-        <h1>Graphene</h1>
-        <p>A statically typed, compiled, data oriented language.</p>
-      </div>
-    </div>
-  );
+function Nav() {
+    return (
+        <div>
+            <ul>
+                <li><A href="/">Home</A></li>
+                <li><A href="/learn">Learn</A></li>
+                <li><A href="/download">Download</A></li>
+            </ul>
+        </div>
+    );
 }
 
-export default App;
+export default Nav;
