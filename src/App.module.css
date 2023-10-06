@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.header h1 {
+  font-family: 'Bevan', serif;
+  margin-bottom: 0;
+}
+
+.header p {
+  margin-top: 0;
+}
