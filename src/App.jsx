@@ -23,8 +23,8 @@ function App() {
     <div class={styles.App}>
       <Nav />
       <div class={styles.header}>
-        <h1>Graphene</h1>
-        <p>A statically typed, compiled, data oriented language.</p>
+        <h1 class="title mb0">Graphene</h1>
+        <p class={styles.description}>A statically typed, compiled, data oriented language.</p>
       </div>
     </div>
   );

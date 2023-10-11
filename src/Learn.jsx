@@ -16,11 +16,29 @@
 // along with graphene-site.  If not, see <http://www.gnu.org/licenses/>.
 
 import Nav from "./Nav"
+import styles from "./Learn.module.css"
+
+function Section(props) {
+    return (
+        <section class={styles.section}>
+            <h2 class={styles.section_title}>{props.title}</h2>
+            {props.children}
+        </section >
+    )
+}
 
 function Learn() {
     return (
         <div>
             <Nav />
+            <h1 class="title">Learn Graphene</h1>
+            <Section title="Get started">
+                <p>
+                    The <em>Graphene programming language</em> book will guide you through the language.
+                </p>
+                <a>Read the book</a>
+
+            </Section>
         </div>
     );
 }

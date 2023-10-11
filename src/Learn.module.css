@@ -17,31 +17,19 @@
  * along with graphene-site.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-.navbar {
-    background-color: #010f1f;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+.section {
+    background-color: #102a3c;
+    padding: 2em 3em;
 }
 
-.navbar select {
-    border: 0;
-    margin: 2em auto 2em 1em;
-    grid-column: 1;
-}
-
-ul {
-    list-style-type: none;
+.section_title {
+    font-family: 'Bevan', serif;
+    text-decoration: underline;
+    text-decoration-thickness: 0.2em;
     background-color: inherit;
-    grid-column: 2;
+    margin: 0;
 }
 
-li {
-    display: inline-block;
-    padding: 0.5em;
-    margin: 0.5em;
-}
-
-a {
-    text-decoration: none;
+.section * {
+    background-color: inherit;
 }

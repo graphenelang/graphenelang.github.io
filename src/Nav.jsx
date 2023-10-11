@@ -17,16 +17,17 @@
 
 import styles from "./Nav.module.css";
 import { A } from "@solidjs/router";
+import i18next from "i18next";
 
 function Nav() {
     return (
-        <div>
+        <div class={styles.navbar}>
             <ul>
                 <li><A href="/">Home</A></li>
                 <li><A href="/learn">Learn</A></li>
                 <li><A href="/download">Download</A></li>
             </ul>
-        </div>
+        </div >
     );
 }
 
