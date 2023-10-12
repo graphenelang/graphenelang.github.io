@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with graphene-site.  If not, see <http://www.gnu.org/licenses/>.
 
-import Nav from "./Nav"
+import Nav from "../Nav"
 import styles from "./Learn.module.css"
 
 function Section(props) {

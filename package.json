@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@solidjs/router": "^0.8.3",
+    "asciidoctor": "^3.0.2",
     "solid-js": "^1.7.6"
   }
 }

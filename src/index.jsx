@@ -20,7 +20,8 @@ import { render } from 'solid-js/web';
 
 import './index.css';
 import App from './App';
-import Learn from "./Learn";
+import Learn from "./learn/Learn";
+import Book from "./learn/Book";
 import { Router, Route, Routes } from "@solidjs/router";
 import Download from './Download';
 
@@ -39,6 +40,7 @@ render(
         <Route path="/" component={App} />
         <Route path="/learn" component={Learn} />
         <Route path="/download" component={Download} />
+        <Route path="/learn/book" component={Book} />
       </Routes>
     </Router>
   ),
