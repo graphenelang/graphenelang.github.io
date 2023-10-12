@@ -17,6 +17,7 @@
 
 import Nav from "../Nav"
 import styles from "./Learn.module.css"
+import { A } from '@solidjs/router'
 
 function Section(props) {
     return (
@@ -36,7 +37,7 @@ function Learn() {
                 <p>
                     The <em>Graphene programming language</em> book will guide you through the language.
                 </p>
-                <a>Read the book</a>
+                <A href="/learn/book">Read the book</A>
 
             </Section>
         </div>

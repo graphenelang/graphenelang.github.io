@@ -17,7 +17,8 @@
 
 import Asciidoctor from "asciidoctor";
 import Nav from "../Nav";
-import { createResource, createSignal } from "solid-js";
+import { Show, createResource, createSignal } from "solid-js";
+import styles from "./Book.module.css";
 
 let asciidoctor = Asciidoctor();
 
@@ -28,15 +29,23 @@ const getChapter = async (id) => {
 function Book() {
     const [chapterid, setChapterid] = createSignal(0);
     const [chapter] = createResource(chapterid, getChapter);
+    const numChapters = 2;
     const renderedChapter = () => asciidoctor.convert(chapter(), { attributes: { showtitle: true } });
 
     return (
-        <div style="text-align: center">
+        <div class={styles.Book}>
             <Nav />
             <Show when={!chapter.loading} fallback={<span>Loading...</span>}>
                 <div innerHTML={renderedChapter()}></div>
             </Show>
-        </div>
+
+            <Show when={chapterid() < numChapters - 1}>
+                <button id={styles.next} onClick={() => setChapterid(chapterid() + 1)}><i class="material-symbols-outlined">chevron_right</i></button>
+            </Show>
+            <Show when={chapterid() != 0}>
+                <button id={styles.previous} onClick={() => setChapterid(chapterid() - 1)}><i class="material-symbols-outlined">chevron_left</i></button>
+            </Show>
+        </div >
     );
 }
 

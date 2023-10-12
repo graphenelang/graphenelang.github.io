@@ -17,29 +17,28 @@
  * along with graphene-site.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Bevan&family=Onest&family=Material+Symbols+Outlined&display=swap');
-
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: 'Onest', sans-serif;
+.Book {
+    text-align: center;
 }
 
-* {
-  background-color: #102033;
-  color: white;
+.Book button {
+    border: 0;
+    margin: 1rem;
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    background-color: #1a2a3d;
+    padding: 1rem 2rem;
 }
 
-.material-symbols-outlined {
-  background-color: inherit;
+.Book button:hover {
+    background-color: #2a3a4d;
 }
 
-.title {
-  font-family: 'Bevan', serif;
-  text-align: center;
+.Book button#next {
+    right: 0;
 }
 
-.mb0 {
-  margin-bottom: 0;
+.Book button#previous {
+    left: 0;
 }
