@@ -17,7 +17,7 @@
 
 import Asciidoctor from "asciidoctor";
 import Nav from "../Nav";
-import { Show, createResource, createSignal } from "solid-js";
+import { For, Show, createResource, createSignal } from "solid-js";
 import styles from "./Book.module.css";
 
 let asciidoctor = Asciidoctor();
@@ -26,24 +26,49 @@ const getChapter = async (id) => {
     const response = await fetch(`/src/assets/chapters/chapter${id}.adoc`);
     return await response.text();
 }
+
+const contents = [
+    "The Graphene Programming language",
+    "Introduction"
+];
+
 function Book() {
     const [chapterid, setChapterid] = createSignal(0);
     const [chapter] = createResource(chapterid, getChapter);
     const numChapters = 2;
     const renderedChapter = () => asciidoctor.convert(chapter(), { attributes: { showtitle: true } });
 
+    function Sidebar() {
+        const [width, setwidth] = createSignal("0");
+
+        return (
+            <>
+                <button id={styles.open} onclick={() => setwidth(width() === "0" ? "auto" : "0")}>
+                    <i class="material-symbols-outlined">menu</i>
+                </button>
+                <div class={styles.Sidebar} style={`width: ${width()}`}>
+                    <For each={contents}>{(title, i) =>
+                        <button onClick={() => setChapterid(i)}>
+                            {i}. {title}
+                        </button>
+                    }</For>
+                </div>
+            </>
+        );
+    }
+
     return (
         <div class={styles.Book}>
             <Nav />
+            <Sidebar />
             <Show when={!chapter.loading} fallback={<span>Loading...</span>}>
                 <div innerHTML={renderedChapter()}></div>
             </Show>
-
             <Show when={chapterid() < numChapters - 1}>
-                <button id={styles.next} onClick={() => setChapterid(chapterid() + 1)}><i class="material-symbols-outlined">chevron_right</i></button>
+                <button class={styles.nav_button} id={styles.next} onClick={() => setChapterid(chapterid() + 1)}><i class="material-symbols-outlined">chevron_right</i></button>
             </Show>
             <Show when={chapterid() != 0}>
-                <button id={styles.previous} onClick={() => setChapterid(chapterid() - 1)}><i class="material-symbols-outlined">chevron_left</i></button>
+                <button class={styles.nav_button} id={styles.previous} onClick={() => setChapterid(chapterid() - 1)}><i class="material-symbols-outlined">chevron_left</i></button>
             </Show>
         </div >
     );
