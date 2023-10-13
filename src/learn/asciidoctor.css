@@ -17,33 +17,40 @@
  * along with graphene-site.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-.navbar {
-    background-color: #010f1f;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+h1 {
+    text-align: center;
 }
 
-.navbar ul {
-    list-style-type: none;
-    background-color: inherit;
-    display: flex;
-    justify-content: center;
-    grid-column: 2;
-    padding: 0;
+.text-center {
+    text-align: center;
 }
 
-.navbar li {
-    display: inline-block;
-    margin: 0.5em;
+.sidebarblock {
+    display: block;
     background-color: #1a2a3d;
+    padding: 1em;
+    border-color: grey;
+    border-style: solid;
+    border-width: .2ex 0;
 }
 
-.navbar li:hover {
-    background-color: #2a3a4d;
+.details {
+    display: none;
 }
 
-.navbar a {
-    text-decoration: none;
-    padding: 0.5em;
+#footer {
+    display: none;
+}
+
+.listingblock {
+    background-color: #1a2a3d;
+    padding: 1em;
+}
+
+.listingblock .title {
+    position: relative;
+    font-weight: bold;
+    background-color: #102033;
+    width: 100%;
+    top: -2em;
 }

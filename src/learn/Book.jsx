@@ -17,8 +17,10 @@
 
 import Asciidoctor from "asciidoctor";
 import Nav from "../Nav";
-import { For, Show, createResource, createSignal } from "solid-js";
+import { Index, Show, createResource, createSignal } from "solid-js";
+import { Motion } from "@motionone/solid"
 import styles from "./Book.module.css";
+import "./asciidoctor.css"
 
 let asciidoctor = Asciidoctor();
 
@@ -29,40 +31,60 @@ const getChapter = async (id) => {
 
 const contents = [
     "The Graphene Programming language",
-    "Introduction"
+    "Introduction",
+    "Getting Started"
 ];
 
 function Book() {
     const [chapterid, setChapterid] = createSignal(0);
     const [chapter] = createResource(chapterid, getChapter);
-    const numChapters = 2;
-    const renderedChapter = () => asciidoctor.convert(chapter(), { attributes: { showtitle: true } });
+    const numChapters = contents.length;
+    const renderedChapter = () => asciidoctor.convert(chapter(), { standalone: true, attributes: { showtitle: true, StyleSheet: false }, doctype: "book" });
+    const [width, setWidth] = createSignal(0);
 
     function Sidebar() {
-        const [width, setwidth] = createSignal("0");
 
         return (
             <>
-                <button id={styles.open} onclick={() => setwidth(width() === "0" ? "auto" : "0")}>
+                <Motion.button
+                    id={styles.open}
+                    onClick={() => setWidth(width() ? 0 : 20)}
+                    animate={{ left: `${width() ? width() + 5 : 1}em` }}
+                    transition={{ duration: 0.25 }}
+                >
                     <i class="material-symbols-outlined">menu</i>
-                </button>
-                <div class={styles.Sidebar} style={`width: ${width()}`}>
-                    <For each={contents}>{(title, i) =>
+                </Motion.button>
+                <Motion
+                    animate={{ width: `${width()}em` }}
+                    transition={{ duration: 0.25 }}
+                    class={styles.Sidebar}
+                >
+                    <Index each={contents}>{(title, i) =>
                         <button onClick={() => setChapterid(i)}>
                             {i}. {title}
                         </button>
-                    }</For>
-                </div>
+                    }</Index>
+                </Motion>
             </>
         );
     }
 
     return (
         <div class={styles.Book}>
-            <Nav />
+            <Motion
+                animate={{ ["margin"]: `0 0em 0 ${width()}em` }}
+                transition={{ duration: 0.25 }}
+            >
+                <Nav />
+            </Motion>
             <Sidebar />
             <Show when={!chapter.loading} fallback={<span>Loading...</span>}>
-                <div innerHTML={renderedChapter()}></div>
+                <Motion
+                    animate={{ margin: `0 5em 0 ${width() + 5}em` }}
+                    transition={{ duration: 0.25 }}
+                    class={styles.chapter_container}
+                    innerHTML={renderedChapter()}
+                />
             </Show>
             <Show when={chapterid() < numChapters - 1}>
                 <button class={styles.nav_button} id={styles.next} onClick={() => setChapterid(chapterid() + 1)}><i class="material-symbols-outlined">chevron_right</i></button>

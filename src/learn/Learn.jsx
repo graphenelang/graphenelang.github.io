@@ -32,7 +32,7 @@ function Learn() {
     return (
         <div>
             <Nav />
-            <h1 class="title">Learn Graphene</h1>
+            <h1 class="page_title">Learn Graphene</h1>
             <Section title="Get started">
                 <p>
                     The <em>Graphene programming language</em> book will guide you through the language.
