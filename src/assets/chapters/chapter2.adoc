@@ -36,7 +36,9 @@ In this book, commands to run in the terminal will be prefixed with $. You shoul
 
 Now that Graphene is installed on your machine, it's time to write your first Graphene program. As is tradition in programming language learning your first program will just print hello world to the screen.
 
-.a listing
+Save the code in listing 1 to a file on the disk called main.graphene. All graphene files ise the .graphene extension. Multiword filename should be camel case i.e. helloWorld.graphene not helloworld.graphene. 
+
+.Program that outputs hello world
 [source,graphene]
 ----
 import(std.IO)
@@ -44,4 +46,22 @@ import(std.IO)
 func main() {
     IO.println("Hello, world!")
 }
+----
+
+Now from the command line you can compile and run the program. On unix systems (macOS, Linux) enter the following commands.
+
+[source,bash]
+----
+$ graphene main.graphene
+$ ./main
+Hello, world!
+----
+
+On Windows enter these commands instead:
+
+[source,powershell]
+----
+> graphene main.graphene
+> .\main.exe
+Hello, world!
 ----

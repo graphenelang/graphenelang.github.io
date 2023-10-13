@@ -23,11 +23,11 @@
 }
 
 .Book .nav_button {
-    margin: 1rem;
+    margin: .75rem;
     position: fixed;
     display: flex;
     bottom: 0;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
 }
 
 .Book button:hover {
@@ -51,8 +51,8 @@ button#open {
 }
 
 .chapter_container {
+    position: relative;
     margin: 0 5em;
-    margin-left: 5em;
 }
 
 .Sidebar {

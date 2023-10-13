@@ -80,7 +80,7 @@ function Book() {
             <Sidebar />
             <Show when={!chapter.loading} fallback={<span>Loading...</span>}>
                 <Motion
-                    animate={{ margin: `0 5em 0 ${width() + 5}em` }}
+                    animate={{ margin: `0 5em 1em ${width() + 5}em` }}
                     transition={{ duration: 0.25 }}
                     class={styles.chapter_container}
                     innerHTML={renderedChapter()}
@@ -90,7 +90,15 @@ function Book() {
                 <button class={styles.nav_button} id={styles.next} onClick={() => setChapterid(chapterid() + 1)}><i class="material-symbols-outlined">chevron_right</i></button>
             </Show>
             <Show when={chapterid() != 0}>
-                <button class={styles.nav_button} id={styles.previous} onClick={() => setChapterid(chapterid() - 1)}><i class="material-symbols-outlined">chevron_left</i></button>
+                <Motion.button
+                    animate={{ left: `${width() ? width() + 4 : 0}em` }}
+                    transition={{ duration: 0.25 }}
+                    class={styles.nav_button}
+                    id={styles.previous}
+                    onClick={() => setChapterid(chapterid() - 1)}
+                >
+                    <i class="material-symbols-outlined">chevron_left</i>
+                </Motion.button>
             </Show>
         </div >
     );
