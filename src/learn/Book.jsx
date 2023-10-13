@@ -25,7 +25,7 @@ import "./asciidoctor.css"
 let asciidoctor = Asciidoctor();
 
 const getChapter = async (id) => {
-    const response = await fetch(`/src/assets/chapters/chapter${id}.adoc`);
+    const response = await fetch(`/chapters/chapter${id}.adoc`);
     return await response.text();
 }
 
