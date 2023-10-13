@@ -1,0 +1,67 @@
+// Copyright (C) 2023 Devin Rockwell
+// 
+// This file is part of graphene-site.
+// 
+// graphene-site is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// graphene-site is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with graphene-site.  If not, see <http://www.gnu.org/licenses/>.
+
+= Getting Started
+:listing-caption: Listing
+
+This chapter guides you through installing graphene on your operating system, writing a "Hello, world!" program, and the basics of graphenes build system graphite.
+
+== Installation
+The first step is to install Graphene. This can be done either by downloading prebuilt binaries from the github releases page or by building from source both methods will be explained below. Regardless of which option you choose you will need an internet connection.
+
+.Command Line Notation
+****
+In this book, commands to run in the terminal will be prefixed with $. You should not type the $. PowerShell-specific examples will use > rather than $.
+****
+
+=== Installing from prebuilt binaries
+
+=== Building from source
+
+== Hello, World!
+
+Now that Graphene is installed on your machine, it's time to write your first Graphene program. As is tradition in programming language learning your first program will just print hello world to the screen.
+
+Save the code in listing 1 to a file on the disk called main.graphene. All graphene files ise the .graphene extension. Multiword filename should be camel case i.e. helloWorld.graphene not helloworld.graphene. 
+
+.Program that outputs hello world
+[source,graphene]
+----
+import(std.IO)
+
+func main() {
+    IO.println("Hello, world!")
+}
+----
+
+Now from the command line you can compile and run the program. On unix systems (macOS, Linux) enter the following commands.
+
+[source,bash]
+----
+$ graphene main.graphene
+$ ./main
+Hello, world!
+----
+
+On Windows enter these commands instead:
+
+[source,powershell]
+----
+> graphene main.graphene
+> .\main.exe
+Hello, world!
+----
