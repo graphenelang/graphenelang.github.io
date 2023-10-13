@@ -22,7 +22,7 @@ import './index.css';
 import App from './App';
 import Learn from "./learn/Learn";
 import Book from "./learn/Book";
-import { Router, Route, Routes } from "@solidjs/router";
+import { Router, Route, Routes, hashIntegration } from "@solidjs/router";
 import Download from './Download';
 
 const root = document.getElementById('root');
@@ -35,7 +35,7 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 
 render(
   () => (
-    <Router>
+    <Router source={hashIntegration()}>
       <Routes>
         <Route path="/" component={App} />
         <Route path="/learn" component={Learn} />
